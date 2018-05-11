@@ -4,6 +4,8 @@ from django.conf.urls import url
 
 from . import views
 
+from django.contrib import admin
+
 app_name = 'properties'
 
 urlpatterns = [
@@ -15,4 +17,8 @@ urlpatterns = [
 
 # http://localhost:8000/property/1/
     url(r'^(?P<pk>[0-9]+)/$', views.PropertyDetailView.as_view(), name='detail'),
+    url(r'^search/$', views.PropertyLookupView.as_view(), name='search'),
+
+    url(r'^lookup-dist/$', views.GeoView.as_view(), name='distance'),
+    url(r'^admin/', admin.site.urls),
 ]

@@ -9,10 +9,12 @@
 {% block content %}
 <p>
         <a href="{% url 'properties:add' %}">Add a new listing</a>
+        <a href="{% url 'properties:search' %}">Search</a>
     </p>
 <div class="row">
 
 {% for prop in object_list %}
+    
     <div class="col">
         <div class="card" style="width: 24rem;">
             <div class="card-body">

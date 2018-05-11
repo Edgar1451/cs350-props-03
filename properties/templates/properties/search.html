@@ -1,0 +1,22 @@
+<!-- search.html -->
+{% extends "core/base.html" %}
+
+{% block page_header %}Property Lookup (){% endblock page_header %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <p>Enter search property.</p>
+        <form action="." method="get"> 
+            {{ form.as_p }}
+            <input type="submit" value="Look it up"/>
+        </form>
+    </div>
+    <div class="col">
+        {% for i in Matches %}
+            <p class='lead'>{{ i.address }}</p>
+             <a href="{% url 'properties:detail' i.pk %}" class="card-link-bottom btn btn-default btn-sm">Check it out</a>
+        {% endfor %}        
+    </div>
+</div>
+{% endblock content %}
